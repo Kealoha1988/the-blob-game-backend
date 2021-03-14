@@ -17,6 +17,8 @@ class PlayersController < ApplicationController
   def create
     @player = Player.find_or_create_by(player_params)
     if @player.save
+      @@current_player = []
+      @@current_player << @player
       render json: @player, status: :created, location: @player
     else
       render json: @player.errors, status: :unprocessable_entity

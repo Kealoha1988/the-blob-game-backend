@@ -15,7 +15,7 @@ class ScoresController < ApplicationController
 
   # POST /scores
   def create
-    @score = Score.new(score_params)
+    @score = @@current_player[0].scores.build(score_params)
 
     if @score.save
       render json: @score, status: :created, location: @score
@@ -49,7 +49,9 @@ class ScoresController < ApplicationController
       params.require(:score).permit(:time)
     end
 
-  
+  def find_player
+    @player = Player.last
+  end
 
 
 end
