@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2021_03_12_180946) do
   end
 
   create_table "scores", force: :cascade do |t|
-    t.integer "blobs_destroyed"
+    t.integer "time"
     t.integer "player_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
