@@ -46,6 +46,10 @@ class ScoresController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def score_params
-      params.require(:score).permit(:blobs_destroyed)
+      params.require(:score).permit(:time)
     end
+
+  
+
+
 end
