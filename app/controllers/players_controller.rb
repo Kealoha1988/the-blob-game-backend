@@ -36,6 +36,7 @@ class PlayersController < ApplicationController
 
   # DELETE /players/1
   def destroy
+    @player.scores.each{|s| s.destroy}
     @player.destroy
   end
 

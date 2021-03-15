@@ -5,7 +5,7 @@ class ScoresController < ApplicationController
   def index
     @scores = Score.all
 
-    render json: @scores.hi_low
+    render json: @scores.hi_low, include: [:player]
   end
 
   # GET /scores/1
@@ -18,7 +18,7 @@ class ScoresController < ApplicationController
     @score = @@current_player[0].scores.build(score_params)
 
     if @score.save
-      render json: @score, status: :created, location: @score
+      render json: @score, include: [:player]
     else
       render json: @score.errors, status: :unprocessable_entity
     end
