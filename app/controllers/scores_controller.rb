@@ -5,7 +5,7 @@ class ScoresController < ApplicationController
   def index
     @scores = Score.all
 
-    render json: @scores
+    render json: @scores.hi_low
   end
 
   # GET /scores/1
